@@ -1,12 +1,4 @@
 <?php get_header(); ?>
-    <div class="container">
-        <h1><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></h1>
-        
-        <div class="pages">
-            <ul class="nav nav-pills ">
-                <?php wp_list_pages('title_li='); ?>
-            </ul>
-        </div>
         <div class="posts">
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 <div class="artigo">
@@ -27,5 +19,5 @@
                 </div>
             <?php endif; ?>
         </div>
-    </div>
+
 <?php get_footer(); ?>

@@ -1,8 +1,9 @@
 
+    </div>
     <footer>
         <hr>
         <div class="container">
-            <p>Direitos Reservados sitexemplo.com</p>
+            <p>Direitos reservados <?php bloginfo('name'); ?></p>
         </div>
     </footer>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

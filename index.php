@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js" <?php language_attributes(); ?>>
-    <head>
-        <title><?php wp_title(''); ?></title>
-        <meta charset="<?php bloginfo('charset'); ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
-        <link href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    </head>
-    <body>
-
+<?php get_header(); ?>
     <div class="container">
-        <h1>Foi!</h1>
+        <h1><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></h1>
+        
+        <div class="pages">
+            <ul class="nav nav-pills ">
+                <?php wp_list_pages('title_li='); ?>
+            </ul>
+        </div>
+        <div class="posts">
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                <div class="artigo">
+                    <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                    <p>Postado por <?php the_author() ?> em <?php the_time('d/M/Y') ?> - <?php comments_popup_link('Sem Comentários', '1 Comentário', '% Comentários', 'comments-link', ''); ?> <?php edit_post_link('(Editar)'); ?></p>
+                    <p><?php the_content(); ?></p>
+                </div> 
+            <?php endwhile?>
+                <div class="navegacao">
+                    <div class="recentes"><?php next_posts_link('&laquo; Artigos Anteriores') ?></div>
+                    <div class="anteriores"><?php previous_posts_link('Artigos Recentes &raquo;') ?></div>
+                </div>
+            <?php else: ?>
+                <div class="artigo">
+                    <h2>Nada Encontrado</h2>
+                    <p>Erro 404</p>
+                    <p>Lamentamos mas não foram encontrados artigos.</p>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
-
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
-</html>
+<?php get_footer(); ?>

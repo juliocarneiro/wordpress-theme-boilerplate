@@ -1,0 +1,133 @@
+/*
+Theme name:Meu Tema
+Theme URI:http://juliocarneiro.com.br
+Author:Júlio Carneiro
+Description:Um tema wordpress
+Version:1
+Tags:meu tema, meutema
+*/
+
+//BREAKPOINTS & LOADER
+$breakpoints: (
+	"phone":        400px,
+	"phone-wide":   480px,
+	"phablet":      560px,
+	"tablet-small": 640px,
+	"tablet":       768px,
+	"tablet-wide":  1024px,
+	"desktop":      1248px,
+	"desktop-wide": 1440px,
+	"desktop-submenu": 1200px,
+);
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
+}
+@mixin mq($width, $type: max) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+		@if $type == max {
+				$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+body{
+	display: none;
+    font-family: 'Volkart'; 
+    a{
+        opacity: 1;
+        transition: all 0.3s ease;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+    p{
+        font-size: 12px;
+        font-weight: 200;
+    }
+}
+.space{
+	display: block;
+	margin: 40px 0;
+}
+#loader {
+    border: 16px solid white; /* Light grey */
+    border-top: 16px solid black; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+	animation: spin 2s linear infinite;
+	margin: 0 auto !important;
+	float: none !important;
+}
+#space-loader{
+	display: block;
+	margin-top: 5%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#comments{
+    width:630px;
+    float:left;
+    border-top:1px solid #bebebe;
+}
+ 
+#comments h3{
+    font-size:14px;
+    margin:20px 0;
+}
+ 
+ol.commentlist{
+    list-style:none;
+}
+ 
+ol.commentlist li{
+    margin-bottom:30px;
+}
+ 
+ol.commentlist ul{
+    margin:0px;
+}
+ 
+ol.commentlist ul li{
+    margin:20px 20px 20px 40px;
+}
+ 
+#respond{
+    margin:0 0 30px 0;
+    clear:both;
+}
+ 
+#respond form label{
+    float:left;
+    clear:left;
+    width:60px;
+    text-align:right;
+    margin-right:10px;
+}
+ 
+#respond form input{
+    float:left;
+    width:250px;
+    margin-bottom:10px;
+}
+ 
+#respond form textarea{
+    float:left;
+    width:400px;
+    height:100px;
+    margin-bottom:10px;
+}
+ 
+#respond form input.commentsubmit{
+    float:left;
+    margin-left:70px;
+}

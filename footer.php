@@ -6,7 +6,6 @@
             <p>Direitos reservados <?php bloginfo('name'); ?></p>
         </div>
     </footer>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/functions.js"></script>
     </body>
 </html>
